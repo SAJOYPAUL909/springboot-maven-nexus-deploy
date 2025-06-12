@@ -13,9 +13,18 @@
 	<version>0.0.2-SNAPSHOT</version>
 	<name>springboot-maven-course-micro-svc</name>
 	<description>Demo project for Spring Boot</description>
+	<distributionManagement>
+    <repository>
+        <id>nexus</id>
+        <name>Nexus Release Repository</name>
+        <url>http://localhost:8081/repository/maven-releases/</url>
+    </repository>
+</distributionManagement>
+
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -32,9 +41,20 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>yourPluginVersion</version>
+    	  </plugin>
+			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+    <groupId>org.sonarsource.scanner.maven</groupId>
+    <artifactId>sonar-maven-plugin</artifactId>
+    <version>3.11.0.3922</version>
+</plugin>
+
 		</plugins>
 	</build>
 
